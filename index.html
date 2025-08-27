@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Your Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Rate Your Games</h1>
+        <p>Tu jardín digital de videojuegos</p>
+    </header>
+
+    <main class="container">
+        <section class="game-form-section">
+            <h2 class="section-title">Añadir nuevo juego</h2>
+            <form id="game-form" class="game-form">
+                <input type="text" id="game-title" placeholder="Título del juego" required>
+                <input type="text" id="game-platform" placeholder="Plataforma" required>
+                <input type="number" id="game-score" placeholder="Puntuación (10-90+)" min="10" max="100">
+				<input type="" id="game-image-link" placeholder="URL de imagen (Opcional)">
+				<input type="" id="game-reference-link" placeholder="URL de referencia (Opcional)">
+                <button type="submit">Añadir a mi jardín</button>
+            </form>
+        </section>
+
+        <section class="game-list-section">
+            <h2 class="section-title">Mi Jardín de Juegos</h2>
+            <div id="game-list" class="game-list">
+                <!-- Los juegos se renderizarán aquí -->
+            </div>
+            <div id="message-box" class="message-box hidden"></div>
+        </section>
+
+        <section class="data-management-section">
+            <h2 class="section-title">Gestión de datos</h2>
+            <div class="data-management-buttons">
+                <label for="import-file" class="button">
+                    Importar puntuaciones
+                    <input type="file" id="import-file" accept=".json" style="display: none;">
+                </label>
+                <button id="export-button">Exportar puntuaciones</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>Esto no lo aprecia ni sabe nadie.</p>
+        <a href="stats.html" class="stats-link" target="_blank">Ver estadísticas</a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

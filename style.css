@@ -1,0 +1,419 @@
+/* Importa la fuente Inter de Google Fonts */
+:root {
+    /* Colores más brillantes y contrastantes al estilo de los 90s */
+    --bg-color: #0b15285e; /* Azul oscuro rymero clarísimo*/
+    --text-color: #55585d; /* gris rymero */
+    --card-bg: #8c8cff; /* Azul púrpura brillante */
+    --border-color: #35b104; /* Verde neón */
+    --button-bg: #fff000; /* Amarillo los Simpson */
+    --button-hover: #00b3b3;
+    --accent-color: #4582a3; /* azul claro rymero low-quality*/
+    --accent-hover: #e0009d;
+    --error-color: #ff0000; /* Rojo */
+    --success-color: #00ff00; /* Verde */
+}
+
+/* MySpace y fuentes que se vean más antiguas */
+* {
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Courier New', sans-serif; /* ¡Es la fuente nostálgica definitiva! */
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    /* Efecto de fondo sutil con degradado y textura */
+    background-image: linear-gradient(rgba(0,0,0,0.2) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(0,0,0,0.2) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    padding: 2rem 1rem;
+    border-bottom: 3px dashed var(--border-color); /* Borde punteado retro */
+    animation: neon-flicker 1.5s infinite alternate; /* Efecto de neón */
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin: 0;
+    color: var(--accent-color);
+    text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+    letter-spacing: 5px;
+}
+
+.header p {
+    font-style: normal;
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--text-color);
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    border-bottom: 3px solid var(--accent-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 var(--border-color);
+}
+
+/* Formularios y entradas */
+.game-form-section, .data-management-section, .stats-section {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 4px 4px 0 var(--border-color); /* Sombra 2D */
+    border: 3px solid var(--border-color);
+}
+
+.game-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.game-form input,
+.game-form textarea {
+    padding: 0.8rem;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.game-form input:focus,
+.game-form textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 5px var(--accent-color);
+}
+
+.game-form button,
+.data-management-buttons .button,
+.stats-link,
+#export-button {
+    padding: 0.8rem 1.5rem;
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.game-form button:hover,
+.data-management-buttons .button:hover,
+.stats-link:hover,
+#export-button:hover {
+    background-color: var(--button-hover);
+    box-shadow: 3px 3px 0 var(--border-color);
+    transform: translate(-3px, -3px);
+}
+
+/* Lista de juegos */
+.game-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.game-card {
+    background-color: var(--card-bg);
+    border: 3px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+    box-shadow: 4px 4px 0 var(--border-color);
+}
+
+.game-card .game-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    object-fit: cover;
+    flex-shrink: 0;
+    border: 2px solid var(--border-color);
+}
+
+.game-card .card-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.game-card .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.game-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.game-card .score {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--text-color);
+    flex-shrink: 0;
+    text-shadow: 0 0 5px var(--accent-color);
+}
+
+/* Nuevas clases para puntuaciones de tarjetas */
+.game-card .score.low-score {
+    color: var(--sucess-color);
+    text-shadow: 0 0 5px var(--sucess-color);
+}
+
+.game-card .score.midlow-score {
+    color: #f5f240;
+    text-shadow: 0 0 5px #f5f240;
+}
+	
+.game-card .score.mid-score {
+    color: #f5bc40;
+    text-shadow: 0 0 5px #f5bc40;
+}
+	
+.game-card .score.midhigh-score {
+    color: #f59740;
+    text-shadow: 0 0 5px #f59740;
+}
+	
+.game-card .score.high-score {
+    color: #eb3f3f;
+    text-shadow: 0 0 5px #eb3f3f;
+}
+
+.game-card .platform {
+    font-style: italic;
+    color: var(--text-color);
+    margin: 0;
+}
+
+.game-card .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.game-reference-link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.game-reference-link:hover {
+    text-decoration: underline;
+}
+
+.game-card .delete-button {
+    background: none;
+    border: none;
+    color: var(--error-color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: all 0.2s ease;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.game-card .delete-button:hover {
+    color: var(--button-hover);
+    transform: scale(1.2);
+}
+
+/* Mensajes de feedback */
+.message-box {
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    border: 2px solid;
+}
+
+.message-box.hidden {
+    display: none;
+}
+
+.message-box.success {
+    background-color: var(--success-color);
+    color: #000;
+    border-color: #000;
+}
+
+.message-box.error {
+    background-color: var(--error-color);
+    color: #fff;
+    border-color: #fff;
+}
+
+/* Gestión de datos */
+.data-management-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem;
+    border-top: 3px dashed var(--border-color);
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    font-weight: bold;
+}
+
+.stats-link {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    text-shadow: 1px 1px 0 #000;
+}
+
+.stats-link:hover {
+    background-color: var(--button-hover);
+}
+
+/* Estilos de estadísticas */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.score-distribution {
+    margin-top: 1rem;
+}
+
+.score-distribution-graph {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.score-bar-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.score-label {
+    width: 5rem;
+    text-align: right;
+    font-weight: bold;
+}
+
+/* Clase genérica para la barra */
+.score-bar {
+    height: 1.5rem;
+    border-radius: 4px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Clases de colores para las barras */
+.score-bar.low-score-bar {
+    background: linear-gradient(90deg, var(--success-color), #00cc00);
+    box-shadow: 0 0 5px var(--success-color);
+}
+
+.score-bar.midlow-score-bar {
+    background: linear-gradient(90deg, #f5f240, #e6c836);
+    box-shadow: 0 0 5px #f5f240;
+}
+
+.score-bar.mid-score-bar {
+    background: linear-gradient(90deg, #f5bc40, #e6a836);
+    box-shadow: 0 0 5px #f5bc40;
+}
+
+.score-bar.midhigh-score-bar {
+    background: linear-gradient(90deg, #f59740, #e68536);
+    box-shadow: 0 0 5px #f59740;
+}
+
+.score-bar.high-score-bar {
+    background: linear-gradient(90deg, #eb3f3f, #d23333);
+    box-shadow: 0 0 5px #eb3f3f;
+}
+
+.go-back-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.go-back-link a {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.go-back-link a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .game-form input,
+    .game-form textarea {
+        padding: 0.6rem;
+    }
+
+    .game-form button,
+    .data-management-buttons .button,
+    .stats-link,
+    #export-button {
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* Animaciones de neón */
+@keyframes neon-flicker {
+    from { text-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color), 0 0 30px var(--accent-color); }
+    to { text-shadow: 0 0 5px var(--accent-color), 0 0 15px var(--accent-color), 0 0 25px var(--accent-color); }
+}

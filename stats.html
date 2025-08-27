@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadísticas - Rate Your Games</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>Estadísticas</h1>
+        <p>Un vistazo a tu jardín</p>
+    </header>
+
+    <main class="container">
+        <section class="stats-section">
+            <h2 class="section-title">Análisis de tus puntuaciones</h2>
+            <div id="stats-container" class="stats-container">
+                <p id="total-games-stat">Total de juegos: 0</p>
+                <p id="avg-score-stat">Puntuación media: 0</p>
+                <div class="score-distribution">
+                    <h3>Distribución de puntuaciones</h3>
+                    <div id="score-distribution-graph" class="score-distribution-graph">
+                        <!-- Los gráficos de barras se renderizarán aquí -->
+                    </div>
+                </div>
+            </div>
+            <div id="message-box" class="message-box hidden"></div>
+        </section>
+        <div class="go-back-link">
+            <a href="index.html">← Volver a la página principal</a>
+        </div>
+    </main>
+    <script src="stats.js"></script>
+</body>
+</html>
